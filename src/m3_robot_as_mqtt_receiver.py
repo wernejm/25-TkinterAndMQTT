@@ -220,7 +220,7 @@ def main():
 
     forward_button = ttk.Button(main_frame, text="Forward")
     forward_button.grid(row=2, column=1)
-    forward_button['command'] = lambda: do_the_roar("Forward button",client)
+    forward_button['command'] = lambda: driveMethod(go,client, [600, 600])
     root.bind('<Up>', lambda event: do_the_roar("Forward key",client))
 
     left_button = ttk.Button(main_frame, text="Left")
@@ -269,9 +269,9 @@ def do_the_roar(text, client):
     s = text
     client.send_message("say_it", [s])
 
-def driveMethod(method, client):
+def driveMethod(method, client, params):
 
-    client.send_message("method")
+    client.send_message("method", params)
 
 
 
